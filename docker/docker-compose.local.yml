@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16.3
+    environment:
+      POSTGRES_HOST: localhost
+      POSTGRES_DB: dropbox_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres@dropbox
+    container_name: dropbox_db_container
+    ports:
+      - "15432:5432"
+    volumes:
+      - dropbox_db_vol:/var/lib/postgresql/data
+
+
+volumes:
+  dropbox_db_vol:
+  static:
+  media:

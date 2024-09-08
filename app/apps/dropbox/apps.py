@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DropboxConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'dropbox'
+    name = 'app.apps.dropbox'
