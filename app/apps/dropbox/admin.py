@@ -1,11 +1,11 @@
 from django.contrib import admin
-from app.apps.dropbox.repositories.dropbox_repo import DropboxRepo
+from app.apps.dropbox.repositories.file_repo import FileRepo
 from app.apps.base.admin import BaseModelAdmin
 
 # models are registered here
 
-@admin.register(DropboxRepo.get_model())
-class DropboxModelAdmin(BaseModelAdmin):
+@admin.register(FileRepo.get_model())
+class FileModelAdmin(BaseModelAdmin):
     """Dropbox model admin class"""
     
     list_display = ('id', 'file_name',)

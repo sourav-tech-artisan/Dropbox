@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-LIBS = ["rest_framework"]
+LIBS = ["rest_framework", "storages"]
 
 APPS = ["app.apps.base", "app.apps.dropbox"]
 
@@ -144,3 +144,18 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 BASE_URL = config("BASE_URL", cast=str)
+# File size limit in bytes
+FILE_SIZE_LIMIT = config("FILE_SIZE_LIMIT", default=100*1024*1024, cast=int)
+
+# GCS configuration
+GS_BUCKET_NAME = config("GS_BUCKET_NAME", cast=str)
+GOOGLE_APPLICATION_CREDENTIALS = config("GOOGLE_APPLICATION_CREDENTIALS", cast=str)
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+    }
+}
