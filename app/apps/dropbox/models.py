@@ -8,6 +8,7 @@ class File(TimeStampedUUIDModel):
     file = models.FileField(upload_to=upload_file_path, max_length=255)
     file_name = models.CharField(max_length=255, default='Untitled')
     file_size = models.IntegerField()
+    file_type = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'File'

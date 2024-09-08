@@ -68,5 +68,27 @@ class FileRepo:
         except Exception as e:
             raise InternalServerError(f"Error occurred while fetching file with id {file_id}: {str(e)}")
         
+    @classmethod
+    def update_file(cls, instance, **data) -> File:
+        """Updates a file
+        Args:
+            instance (File): The file instance
+            data (dict): The data to update a file
+        
+        Returns:
+            File: The updated file
+        """
+        try:
+            for key, value in data.items():
+                setattr(instance, key, value)
+            instance.save()
+            return instance
+        except IntegrityError as e:
+            raise DataIntegrityError(f"Error occurred while updating file: {str(e)}")
+        except ValidationError as e:
+            raise InvalidDataError()
+        except Exception as e:
+            raise InternalServerError(f"Error occurred while updating file: {str(e)}")
+        
     
     

@@ -23,4 +23,18 @@ class FileService:
             File: The created file
         """
         return FileRepo.create_file(**data)
+    
+    @classmethod
+    def update_file(cls, instance, data):
+        """Update File
+        
+        This method is responsible for updating a file.
+        
+        Args:
+            data (dict): The data to update a file
+        
+        Returns:
+            File: The updated file
+        """
+        return FileRepo.update_file(instance, **data)
         
