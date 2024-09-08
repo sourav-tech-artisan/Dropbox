@@ -90,5 +90,18 @@ class FileRepo:
         except Exception as e:
             raise InternalServerError(f"Error occurred while updating file: {str(e)}")
         
+    @classmethod
+    def delete_file(cls, file):
+        """Deletes a file
+        Args:
+            file (File): The file to delete
+        """
+        try:
+            file.delete()
+        except IntegrityError as e:
+            raise DataIntegrityError(f"Error occurred while deleting file: {str(e)}")
+        except Exception as e:
+            raise InternalServerError(f"Error occurred while deleting file with id {str(file.id)}: {str(e)}")
+        
     
     

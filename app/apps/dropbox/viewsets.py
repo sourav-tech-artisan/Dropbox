@@ -82,7 +82,10 @@ class FileViewSet(viewsets.ModelViewSet):
     
     def destroy(self, request, *args, **kwargs):
         """Deletes a file."""
-        return super().destroy(request, *args, **kwargs)
+        instance = self.get_object()
+        FileService.delete_file(instance)
+        return Response(status=204)
+    
         
         
         

@@ -61,10 +61,11 @@ To run the project locally -
 2. Run `poetry install` to install dependencies, this will create poetry.lock file
 3. Setup environment variables in .env file in root folder
 4. Setup secret key in secret.json file in root folder
-5. Database setup: 
+5. Activate the virtual environment by running `poetry shell`
+6. Database setup: 
     - Run 'docker compose -f docker/docker-compose.local.yml up -d' to start the database
     - Run 'poetry run python manage.py migrate' to apply migrations
-6. Run `poetry run python manage.py runserver` to start the Django development server
+7. Run `poetry run python manage.py runserver` to start the Django development server
 ```
 
 ## Run Unit Tests for dropbox app
