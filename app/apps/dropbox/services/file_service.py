@@ -8,6 +8,7 @@ class FileService:
 
     Methods defined here:
     - create_file(data) -> File: Create File
+    - update_file(instance, data) -> File: Update File
     """
 
     @classmethod
